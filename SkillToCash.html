@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Make Your First ₦50k as a Student</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface2: #181818;
+    --border: #222;
+    --accent: #c8f135;
+    --accent2: #f1c135;
+    --accent3: #35f1a0;
+    --muted: #555;
+    --text: #e8e8e8;
+    --text-dim: #888;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 40px 60px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '₦';
+    position: absolute;
+    right: -40px;
+    bottom: -80px;
+    font-family: 'Syne', sans-serif;
+    font-size: 500px;
+    font-weight: 800;
+    color: var(--accent);
+    opacity: 0.04;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin-bottom: 32px;
+    width: fit-content;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 7vw, 80px);
+    font-weight: 800;
+    line-height: 1.05;
+    max-width: 900px;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 span {
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: var(--text-dim);
+    max-width: 560px;
+    margin-bottom: 48px;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    border-left: 2px solid var(--accent);
+    padding-left: 16px;
+  }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+
+  /* PROGRESS NAV */
+  .progress-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 40px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .progress-nav::-webkit-scrollbar { display: none; }
+
+  .nav-pill {
+    flex-shrink: 0;
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: all 0.2s;
+    background: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .nav-pill:hover, .nav-pill.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(200,241,53,0.06);
+  }
+
+  /* MAIN LAYOUT */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  .section-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .section-title span { color: var(--accent); }
+
+  /* INTRO BLOCK */
+  .intro-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--text-dim);
+  }
+
+  .intro-block strong { color: var(--text); }
+
+  /* SKILL CARDS */
+  .skill-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: 600px) {
+    .skill-grid { grid-template-columns: 1fr; }
+    .hero { padding: 60px 24px 48px; }
+    .container { padding: 0 24px; }
+    .progress-nav { padding: 12px 24px; }
+  }
+
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(200,241,53,0.05) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .skill-card:hover::before { opacity: 1; }
+
+  .skill-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .skill-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .skill-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .skill-earn {
+    margin-top: 12px;
+    display: inline-block;
+    background: rgba(200,241,53,0.1);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    letter-spacing: 0.5px;
+  }
+
+  /* STEP BLOCKS */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+
+  .step {
+    display: flex;
+    gap: 24px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .step:last-child { border-bottom: none; }
+
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    flex-shrink: 0;
+    width: 40px;
+  }
+
+  .step-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #000;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-line {
+    width: 1px;
+    flex: 1;
+    background: var(--border);
+    margin-top: 8px;
+    min-height: 40px;
+  }
+
+  .step-content { flex: 1; }
+
+  .step-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .step-body {
+    color: var(--text-dim);
+    font-size: 14px;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+
+  /* CALLOUT BOXES */
+  .callout {
+    border: 1px solid;
+    padding: 18px 22px;
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .callout.tip {
+    border-color: rgba(200,241,53,0.3);
+    background: rgba(200,241,53,0.04);
+    color: var(--text-dim);
+  }
+
+  .callout.tip::before {
+    content: '💡 TIP — ';
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .callout.warn {
+    border-color: rgba(241,193,53,0.3);
+    background: rgba(241,193,53,0.04);
+    color: var(--text-dim);
+  }
+
+  .callout.warn::before {
+    content: '⚠️ WATCH OUT — ';
+    color: var(--accent2);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .callout.action {
+    border-color: rgba(53,241,160,0.3);
+    background: rgba(53,241,160,0.04);
+    color: var(--text-dim);
+  }
+
+  .callout.action::before {
+    content: '✅ DO THIS NOW — ';
+    color: var(--accent3);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  /* RESOURCE TABLE */
+  .resources {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 13px;
+  }
+
+  .resources th {
+    text-align: left;
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .resources td {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: var(--text-dim);
+    vertical-align: top;
+  }
+
+  .resources tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .resources td:first-child { color: var(--text); font-weight: 500; }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 2px;
+  }
+
+  .tag.free { background: rgba(53,241,160,0.15); color: var(--accent3); }
+  .tag.paid { background: rgba(241,193,53,0.15); color: var(--accent2); }
+  .tag.youtube { background: rgba(255,80,80,0.15); color: #ff8080; }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+    border-left: 2px solid var(--border);
+    margin: 28px 0;
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+  }
+
+  .tl-week {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .tl-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .tl-body {
+    font-size: 13.5px;
+    color: var(--text-dim);
+    line-height: 1.75;
+  }
+
+  /* Q&A */
+  .qa-section {
+    margin: 32px 0;
+  }
+
+  .qa-item {
+    border: 1px solid var(--border);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .qa-item.open {
+    border-color: rgba(200,241,53,0.25);
+  }
+
+  .qa-q {
+    padding: 18px 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-weight: 500;
+    font-size: 14px;
+    background: var(--surface);
+    transition: background 0.2s;
+    user-select: none;
+  }
+
+  .qa-q:hover { background: var(--surface2); }
+
+  .qa-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.3s;
+    color: var(--accent);
+  }
+
+  .qa-item.open .qa-icon {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+    transform: rotate(45deg);
+  }
+
+  .qa-a {
+    display: none;
+    padding: 0 22px 20px;
+    font-size: 13.5px;
+    color: var(--text-dim);
+    line-height: 1.85;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+  }
+
+  .qa-item.open .qa-a { display: block; }
+
+  .qa-a strong { color: var(--text); }
+
+  /* SCRIPT TEMPLATE */
+  .script-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent3);
+    padding: 24px 28px;
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--text-dim);
+    font-style: italic;
+    position: relative;
+  }
+
+  .script-box::before {
+    content: 'SCRIPT TEMPLATE';
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    background: var(--accent3);
+    color: #000;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 10px;
+    letter-spacing: 1.5px;
+    font-style: normal;
+  }
+
+  .script-box em { color: var(--accent); font-style: normal; font-weight: 600; }
+
+  /* PRICING TABLE */
+  .price-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  @media (max-width: 600px) { .price-grid { grid-template-columns: 1fr; } }
+
+  .price-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .price-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+
+  .price-amount {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .price-note {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* MILESTONE */
+  .milestone {
+    background: linear-gradient(135deg, rgba(200,241,53,0.08) 0%, rgba(200,241,53,0.02) 100%);
+    border: 1px solid rgba(200,241,53,0.2);
+    padding: 32px;
+    margin: 32px 0;
+    text-align: center;
+  }
+
+  .milestone-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .milestone-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .milestone-desc {
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  /* CHECKLIST */
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .checklist li::before {
+    content: '→';
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 60px 40px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .footer-sub {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 14px 36px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.2s;
+  }
+
+  .cta-btn:hover { opacity: 0.88; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag, .hero h1, .hero-sub, .hero-stats {
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero h1 { animation-delay: 0.1s; }
+  .hero-sub { animation-delay: 0.2s; }
+  .hero-stats { animation-delay: 0.3s; }
+
+  /* Intersection observer targets */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* divider */
+  .divider {
+    width: 48px;
+    height: 2px;
+    background: var(--accent);
+    margin: 20px 0;
+  }
+
+  .inline-highlight {
+    background: rgba(200,241,53,0.12);
+    color: var(--accent);
+    padding: 1px 6px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-tag">Student Income Blueprint</div>
+  <h1>How to Make Your First <span>₦50,000</span> as a Student — No Capital Needed</h1>
+  <p class="hero-sub">Graphic design. Video editing. Copywriting. Social media management. These aren't hobbies — they're your income streams. This guide shows you exactly what to learn, where to start, and how to land your first paying client.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Skills That Pay Now</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Capital Required</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4–6 wks</div>
+      <div class="stat-label">To First ₦50k</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Student-Executable</div>
+    </div>
+  </div>
+</section>
+
+<!-- NAV -->
+<nav class="progress-nav" id="progressNav">
+  <button class="nav-pill active" onclick="scrollTo('s0')">Mindset</button>
+  <button class="nav-pill" onclick="scrollTo('s1')">Pick Your Skill</button>
+  <button class="nav-pill" onclick="scrollTo('s2')">Learn It Fast</button>
+  <button class="nav-pill" onclick="scrollTo('s3')">Build Portfolio</button>
+  <button class="nav-pill" onclick="scrollTo('s4')">Find Clients</button>
+  <button class="nav-pill" onclick="scrollTo('s5')">Close the Deal</button>
+  <button class="nav-pill" onclick="scrollTo('s6')">Pricing</button>
+  <button class="nav-pill" onclick="scrollTo('s7')">30-Day Plan</button>
+  <button class="nav-pill" onclick="scrollTo('s8')">FAQs</button>
+</nav>
+
+<main class="container">
+
+<!-- SECTION 0: MINDSET -->
+<section class="section reveal" id="s0">
+  <div class="section-header">
+    <div class="section-num">00</div>
+    <h2 class="section-title">The Truth Nobody Tells You</h2>
+  </div>
+
+  <div class="intro-block">
+    <strong>Most students are broke not because there's no money to make — but because they're waiting for the perfect moment.</strong> They want to learn everything before they start. They want to feel "ready." They think they need money to make money.<br><br>
+    Here's the real picture: <strong>skills are the capital.</strong> A student who can design a clean flyer is sitting on a ₦5,000–₦30,000 service. A student who can manage a business's Instagram page is worth ₦30,000–₦80,000/month to that business. None of this requires a shop, startup capital, or a degree.
+  </div>
+
+  <div class="callout tip">
+    You don't need to be the best in the world. You only need to be better than your client — and most small business owners in Nigeria have zero design, editing, or copywriting skills. That gap is your income.
+  </div>
+
+  <div class="callout warn">
+    Don't try to learn all four skills at once. Pick one, get good enough to charge, earn, then expand. Spreading yourself thin is the fastest way to stay broke.
+  </div>
+</section>
+
+<!-- SECTION 1: PICK YOUR SKILL -->
+<section class="section reveal" id="s1">
+  <div class="section-header">
+    <div class="section-num">01</div>
+    <h2 class="section-title">Pick <span>Your</span> Skill</h2>
+  </div>
+
+  <p style="color:var(--text-dim); margin-bottom:28px; font-size:14px;">Each skill has different entry barriers and earning timelines. Read them carefully and pick the one that matches your current ability, phone/laptop access, and personality.</p>
+
+  <div class="skill-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🎨</div>
+      <div class="skill-name">Graphic Design</div>
+      <div class="skill-desc">Flyers, logos, social media graphics, posters, business cards. High demand from small businesses, churches, events, student unions.</div>
+      <div class="skill-earn">₦5k–₦50k per job</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🎬</div>
+      <div class="skill-name">Video Editing</div>
+      <div class="skill-desc">Edit raw footage, add music, subtitles, transitions. Businesses making reels, content creators, events/ceremonies.</div>
+      <div class="skill-earn">₦10k–₦80k per video</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">✍️</div>
+      <div class="skill-name">Copywriting</div>
+      <div class="skill-desc">Write captions, ads, product descriptions, email newsletters that actually make people buy. Pure skill, no tools needed beyond a phone.</div>
+      <div class="skill-earn">₦5k–₦60k per project</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📱</div>
+      <div class="skill-name">Social Media Management</div>
+      <div class="skill-desc">Run a business's Instagram, Facebook, or TikTok page. Create content, post consistently, engage followers. Monthly retainer model.</div>
+      <div class="skill-earn">₦20k–₦80k/month</div>
+    </div>
+  </div>
+
+  <div class="callout action">
+    Ask yourself: Do I have a laptop? → Design or Video Editing. Only a phone? → Copywriting or Social Media. Do I like writing? → Copywriting. Hate writing? → Design. Pick and commit.
+  </div>
+
+  <div class="qa-section">
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ Which skill makes money the fastest?
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        <strong>Graphic Design</strong> has the fastest client-to-cash pipeline because demand is everywhere — churches, student groups, small shops, event organizers. With 2 weeks of practice, you can charge for flyers. Copywriting is close second because you can pitch immediately once you can write a converting caption. Social media management takes longer because you need to show a track record before businesses trust you with their pages.
+      </div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ What if I have zero experience in any of these?
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        Perfect. Everyone starts at zero. The resources in Section 02 are specifically for beginners. You don't need any prior knowledge — just 1–2 hours daily. <strong>Graphic Design via Canva</strong> has the gentlest learning curve if you're truly starting from nothing. You can be producing decent work in under a week.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: LEARN IT FAST -->
+<section class="section reveal" id="s2">
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <h2 class="section-title">Learn It <span>Fast</span></h2>
+  </div>
+
+  <div class="intro-block">
+    You don't need months of studying. You need <strong>focused, project-based practice.</strong> The rule: learn a concept → immediately apply it to a fake or real project → repeat. Stop watching tutorials without practicing alongside them.
+  </div>
+
+  <h3 style="font-family:'Syne',sans-serif; margin-bottom:20px; font-size:18px;">🎨 Graphic Design Resources</h3>
+  <table class="resources">
+    <tr><th>Resource</th><th>Platform</th><th>Type</th><th>What You Learn</th></tr>
+    <tr>
+      <td>Canva Design School</td>
+      <td>canva.com/learn</td>
+      <td><span class="tag free">FREE</span></td>
+      <td>Full beginner curriculum inside Canva — layouts, color, typography</td>
+    </tr>
+    <tr>
+      <td>Gareth David Studio</td>
+      <td>YouTube</td>
+      <td><span class="tag youtube">YouTube</span></td>
+      <td>Canva & Photoshop tutorials, very beginner-friendly</td>
+    </tr>
+    <tr>
+      <td>Piximperfect</td>
+      <td>YouTube</td>
+      <td><span class="tag youtube">YouTube</span></td>
+      <td>Photoshop from scratch — clean explanations</td>
+    </tr>
+    <tr>
+      <td>Looka / Adobe Express</td>
+      <td>Web</td>
+      <td><span class="tag free">FREE</span></td>
+      <td>AI-assisted logo drafts to study and remix</td>
+    </tr>
+  </table>
+
+  <h3 style="font-family:'Syne',sans-serif; margin: 28px 0 20px; font-size:18px;">🎬 Video Editing Resources</h3>
+  <table class="resources">
+    <tr><th>Resource</th><th>Platform</th><th>Type</th><th>What You Learn</th></tr>
+    <tr>
+      <td>CapCut (Mobile)</td>
+      <td>App</td>
+      <td><span class="tag free">FREE</span></td>
+      <td>Reels, short-form editing, templates — best free mobile editor</td>
+    </tr>
+    <tr>
+      <td>VN Video Editor</td>
+      <td>App</td>
+      <td><span class="tag free">FREE</span></td>
+      <td>More control than CapCut, great for YouTube-style edits</td>
+    </tr>
+    <tr>
+      <td>DaVinci Resolve (PC)</td>
+      <td>Software</td>
+      <td><span class="tag free">FREE</span></td>
+      <td>Industry-grade editing — worth learning if you have a decent laptop</td>
+    </tr>
+    <tr>
+      <td>Casey Faris (YouTube)</td>
+      <td>YouTube</td>
+      <td><span class="tag youtube">YouTube</span></td>
+      <td>DaVinci Resolve beginner series</td>
+    </tr>
+    <tr>
+      <td>Justin Odisho (YouTube)</td>
+      <td>YouTube</td>
+      <td><span class="tag youtube">YouTube</span></td>
+      <td>Premiere Pro tips, transitions, color grading</td>
+    </tr>
+  </table>
+
+  <h3 style="font-family:'Syne',sans-serif; margin: 28px 0 20px; font-size:18px;">✍️ Copywriting Resources</h3>
+  <table class="resources">
+    <tr><th>Resource</th><th>Platform</th><th>Type</th><th>What You Learn</th></tr>
+    <tr>
+      <td>The Boron Letters</td>
+      <td>Free PDF (search online)</td>
+      <td><span class="tag free">FREE</span></td>
+      <td>Classic copywriting letters — foundational thinking</td>
+    </tr>
+    <tr>
+      <td>Alex Cattoni (YouTube)</td>
+      <td>YouTube</td>
+      <td><span class="tag youtube">YouTube</span></td>
+      <td>Modern copywriting — captions, email, sales pages</td>
+    </tr>
+    <tr>
+      <td>Copyhackers Blog</td>
+      <td>copyhackers.com</td>
+      <td><span class="tag free">FREE</span></td>
+      <td>Deep articles on conversion copy — read 1 article/day</td>
+    </tr>
+    <tr>
+      <td>Nnamdi Azodo (Twitter/X)</td>
+      <td>Twitter/X</td>
+      <td><span class="tag free">FREE</span></td>
+      <td>Nigerian copywriter — context-relevant examples and threads</td>
+    </tr>
+  </table>
+
+  <h3 style="font-family:'Syne',sans-serif; margin: 28px 0 20px; font-size:18px;">📱 Social Media Management Resources</h3>
+  <table class="resources">
+    <tr><th>Resource</th><th>Platform</th><th>Type</th><th>What You Learn</th></tr>
+    <tr>
+      <td>HubSpot Social Media Course</td>
+      <td>academy.hubspot.com</td>
+      <td><span class="tag free">FREE</span></td>
+      <td>Full SMM course with certificate — strategy, scheduling, analytics</td>
+    </tr>
+    <tr>
+      <td>Latasha James (YouTube)</td>
+      <td>YouTube</td>
+      <td><span class="tag youtube">YouTube</span></td>
+      <td>Freelance social media management — real-world workflow</td>
+    </tr>
+    <tr>
+      <td>Buffer Blog</td>
+      <td>buffer.com/resources</td>
+      <td><span class="tag free">FREE</span></td>
+      <td>Posting strategy, content calendar templates</td>
+    </tr>
+  </table>
+
+  <div class="callout tip">
+    Don't download 10 courses and watch none. Pick ONE resource per skill. Go all the way through it. Apply every concept as you go. You'll learn more in 2 weeks of focused practice than 2 months of passive watching.
+  </div>
+</section>
+
+<!-- SECTION 3: BUILD PORTFOLIO -->
+<section class="section reveal" id="s3">
+  <div class="section-header">
+    <div class="section-num">03</div>
+    <h2 class="section-title">Build a <span>Portfolio</span> Without Waiting for Clients</h2>
+  </div>
+
+  <div class="intro-block">
+    The most common student mistake: <strong>"I'll build a portfolio after I get clients."</strong> That's backwards. Clients want proof first. Here's how to build a convincing portfolio from scratch — before you've had a single paying job.
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-left">
+        <div class="step-dot">1</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">Create Fictional Briefs</div>
+        <div class="step-body">
+          Invent clients. Design a flyer for a fictional restaurant called "Abuja Kitchen." Edit a promo video for a made-up fashion brand. Write a caption campaign for a fake skincare business. The work is real — the client isn't. No one will know, and no one asks.
+        </div>
+        <div class="callout action">
+          Design 3 flyers for 3 fictional businesses. Different industries — food, fashion, tech. Show range.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-dot">2</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">Redo Real Businesses' Work (Better)</div>
+        <div class="step-body">
+          Find a local business with a bad flyer, ugly Instagram page, or weak caption. Redesign it. Don't ask permission — this is just for your portfolio. Screenshot their original, show your redesign. "Before/After" posts are extremely compelling to clients.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-dot">3</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">Do 1–2 Free Jobs Strategically</div>
+        <div class="step-body">
+          Not free for everyone — free for <em>one person</em> who can give you a testimonial and referrals. A student union executive, a church media team, a campus vendor. Do excellent work. Get written feedback. That testimonial is worth more than the ₦5k you didn't charge.
+        </div>
+        <div class="callout warn">
+          Don't do free work for strangers online. Do it for people you know personally who can vouch for you publicly.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-dot">4</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">Present Your Portfolio Professionally</div>
+        <div class="step-body">
+          You don't need a website. A clean <strong>Google Drive folder</strong> with well-named files works. A <strong>PDF portfolio document</strong> with your name, what you do, and 5–8 samples works even better. For social media managers, your own page IS your portfolio.
+        </div>
+        <ul class="checklist">
+          <li>Portfolio folder: organized, well-named files (not "final_final_2.psd")</li>
+          <li>At least 5 pieces of work across different formats/styles</li>
+          <li>One "before and after" redesign if possible</li>
+          <li>One real testimonial, even from a free client</li>
+          <li>Your contact info on every portfolio page</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-section">
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ Can I use work I made following a tutorial as portfolio samples?
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        <strong>Only if you modified it significantly.</strong> If you followed a tutorial exactly, it's not yours. But if you took the concept, changed the colors/text/layout, applied it to a different industry — now it shows your judgment, not just your ability to copy steps. Show your thinking, not just the output.
+      </div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ How many portfolio pieces is enough to start pitching?
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        <strong>5 solid pieces beats 20 mediocre ones.</strong> Quality signals taste. Quantity signals desperation. Once you have 5 strong, varied samples, start pitching. You can keep building while you work.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: FIND CLIENTS -->
+<section class="section reveal" id="s4">
+  <div class="section-header">
+    <div class="section-num">04</div>
+    <h2 class="section-title">Find <span>Clients</span> as a Student</h2>
+  </div>
+
+  <div class="intro-block">
+    Your first clients are not on Fiverr. They're not on LinkedIn. They're <strong>people who already know you, or people one conversation away.</strong> Start close, expand outward.
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-left">
+        <div class="step-dot">1</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">Your Warm Network First</div>
+        <div class="step-body">
+          Family businesses, parents' friends' shops, your department's student union, campus clubs and associations. These people already trust you. Pitch them directly — in person or via WhatsApp. One warm connection is worth 100 cold messages.
+        </div>
+        <div class="callout action">
+          List 10 people in your phone contacts who own or work in a business. WhatsApp every single one this week.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-dot">2</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">Campus Businesses</div>
+        <div class="step-body">
+          Every school has food vendors, printing shops, phone accessory sellers, tailors, and salon owners near campus. Most of them have zero online presence or terrible branding. Walk in. Show them a sample you made specifically for their type of business. Close on the spot.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-dot">3</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">Local Businesses via Instagram DM</div>
+        <div class="step-body">
+          Search Instagram for businesses in your city. Look at their page. If their content is poor — no regular posting, low engagement, blurry graphics — that's your opening. Send a specific, compliment-free, value-first DM.
+        </div>
+        <div class="script-box">
+          Hi [Name], I was on your page and noticed your last post was [X weeks] ago. I help businesses like yours stay active on Instagram so you keep showing up for new customers. I've attached a quick sample I made for a business in your industry. Would you be open to a quick chat this week?
+          <br><br>
+          — <em>[Your Name]</em>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-dot">4</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">WhatsApp Status + Word of Mouth</div>
+        <div class="step-body">
+          Post your work on your WhatsApp status regularly. Designs, before/afters, snippets. Let your network know what you do. When someone needs a designer or editor, you want to be the first name they think of. One referral from a satisfied client can chain into 3–5 more.
+        </div>
+        <div class="callout tip">
+          Post on WhatsApp status 3–4x per week minimum. Show work in progress, finished pieces, and client results (with permission). Consistency = top of mind.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-section">
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ Should I use Fiverr or Upwork?
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        Not as your first strategy. Fiverr is extremely competitive and new accounts get buried with no reviews. You'll waste weeks with zero orders. Your first 3–5 clients should come from direct outreach — people you reach personally. Once you have testimonials and samples, then you can use Fiverr or Upwork as an additional channel. <strong>Start with the path of least resistance.</strong>
+      </div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ What if nobody responds to my DMs?
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        Then your message isn't good enough yet, or you're not sending enough. Most people need to send 30–50 DMs to get 3–5 responses. Tweak your message every 10 sends. Make it shorter. Lead with a specific observation about their page. Attach a relevant sample. And never chase — if they don't reply in 3 days, follow up once with: <em>"Circling back in case this got buried 👋"</em> — then move on.
+      </div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ I'm scared of rejection. What if they say no?
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        "No" costs you nothing. It's the same position you're in right now — zero clients. A "no" just means move to the next person. The students making money aren't fearless — they're just comfortable with no. Every "no" is one step closer to the yes that pays. Track rejections like a game. When you hit 20 "no's," celebrate — your first "yes" is usually within that range.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: CLOSE THE DEAL -->
+<section class="section reveal" id="s5">
+  <div class="section-header">
+    <div class="section-num">05</div>
+    <h2 class="section-title">Close the <span>Deal</span></h2>
+  </div>
+
+  <div class="intro-block">
+    Getting a reply is not getting paid. Here's how to move from "interesting" to "here's your money."
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-left">
+        <div class="step-dot">1</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">Understand Exactly What They Need</div>
+        <div class="step-body">
+          Don't quote a price before you know the scope. Ask: What exactly do you need? When do you need it? Have you worked with a designer/editor before? What did you like or hate about that experience? This takes 5 minutes and prevents 99% of client disputes later.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-dot">2</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">Give a Clear Offer</div>
+        <div class="step-body">
+          Don't say "I can do it for around ₦5k–₦15k." That's a range that screams uncertainty. Say: <em>"For a 3-page flyer set with your logo and two revisions, I charge ₦8,000. Turnaround is 48 hours."</em> Be specific. Specificity = confidence.
+        </div>
+        <div class="script-box">
+          "Based on what you've described — 4 Instagram posts per week, captions included, posted and scheduled — I charge <em>₦35,000/month</em>. That includes two content revisions per post and a monthly performance summary. Are you ready to get started, or do you have any questions?"
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-dot">3</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">Collect 50% Upfront — Always</div>
+        <div class="step-body">
+          Never start work without a deposit. Half before, half on delivery. This filters out time-wasters, shows the client is serious, and protects you from ghosting after delivery. Make this non-negotiable from job one.
+        </div>
+        <div class="callout warn">
+          If someone says "I'll pay when I see the work" — that's a red flag. A genuine client has no problem paying a deposit. Walk away.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left">
+        <div class="step-dot">4</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">Deliver, Then Ask for a Review + Referral</div>
+        <div class="step-body">
+          After delivering great work, send this: <em>"Really glad you love it! If you know any other business that could use [what you do], I'd appreciate the referral. And if you have 2 minutes, a quick review via WhatsApp message I can screenshot would mean a lot."</em> Most happy clients will do both.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: PRICING -->
+<section class="section reveal" id="s6">
+  <div class="section-header">
+    <div class="section-num">06</div>
+    <h2 class="section-title">What to <span>Charge</span></h2>
+  </div>
+
+  <div class="intro-block">
+    Pricing is the skill nobody teaches. Most students underprice out of fear. Here's a realistic starting range for the Nigerian market — not the international market.
+  </div>
+
+  <h3 style="font-family:'Syne',sans-serif; font-size:16px; margin-bottom:16px; color:var(--text-dim);">🎨 GRAPHIC DESIGN</h3>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-label">Single Flyer</div>
+      <div class="price-amount">₦3k–8k</div>
+      <div class="price-note">Simple design, 1–2 revisions</div>
+    </div>
+    <div class="price-card">
+      <div class="price-label">Flyer Set (3–5)</div>
+      <div class="price-amount">₦12k–25k</div>
+      <div class="price-note">Campaign or event series</div>
+    </div>
+    <div class="price-card">
+      <div class="price-label">Logo Design</div>
+      <div class="price-amount">₦15k–50k</div>
+      <div class="price-note">Concept + 3 revisions + files</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Syne',sans-serif; font-size:16px; margin:24px 0 16px; color:var(--text-dim);">🎬 VIDEO EDITING</h3>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-label">Short Reel (60s)</div>
+      <div class="price-amount">₦5k–15k</div>
+      <div class="price-note">Cuts, music, captions, transitions</div>
+    </div>
+    <div class="price-card">
+      <div class="price-label">Promo Video (2–5 min)</div>
+      <div class="price-amount">₦20k–50k</div>
+      <div class="price-note">Full edit, color grade, VO</div>
+    </div>
+    <div class="price-card">
+      <div class="price-label">Monthly Reels Package</div>
+      <div class="price-amount">₦30k–70k</div>
+      <div class="price-note">8–12 reels per month</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Syne',sans-serif; font-size:16px; margin:24px 0 16px; color:var(--text-dim);">✍️ COPYWRITING</h3>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-label">5 Social Captions</div>
+      <div class="price-amount">₦5k–12k</div>
+      <div class="price-note">Engaging, conversion-focused</div>
+    </div>
+    <div class="price-card">
+      <div class="price-label">Sales Email</div>
+      <div class="price-amount">₦8k–25k</div>
+      <div class="price-note">One email, tested CTA</div>
+    </div>
+    <div class="price-card">
+      <div class="price-label">Product Description Set</div>
+      <div class="price-amount">₦10k–30k</div>
+      <div class="price-note">5–10 product write-ups</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Syne',sans-serif; font-size:16px; margin:24px 0 16px; color:var(--text-dim);">📱 SOCIAL MEDIA MANAGEMENT</h3>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-label">Starter (3 posts/wk)</div>
+      <div class="price-amount">₦20k–35k</div>
+      <div class="price-note">Per month</div>
+    </div>
+    <div class="price-card">
+      <div class="price-label">Standard (5 posts/wk)</div>
+      <div class="price-amount">₦35k–55k</div>
+      <div class="price-note">Per month, captions included</div>
+    </div>
+    <div class="price-card">
+      <div class="price-label">Full Management</div>
+      <div class="price-amount">₦55k–100k</div>
+      <div class="price-note">Daily posts + engagement + analytics</div>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    Your first client should be charged at the low end of each range. As you build testimonials and case studies, raise your prices. By your 5th client, you should already be charging mid-range.
+  </div>
+
+  <div class="qa-section">
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ What if a client says my price is too high?
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        Don't immediately drop your price. First, ask what their budget is. If it's close, see if you can remove a deliverable to match (e.g., fewer revisions, smaller scope). If they want the same work for half the price — that client isn't for you. There are clients who will pay your price. Move on and find them. Every client you undersell to trains you to undervalue yourself.
+      </div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ Should I charge lower because I'm a student?
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        <strong>Absolutely not.</strong> Clients are paying for results, not your CV. If your flyer design converts customers for them, it's worth ₦8,000 whether you're a student or a 10-year agency. Don't volunteer that you're a student unless directly asked. Your work speaks. Let it.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: 30-DAY PLAN -->
+<section class="section reveal" id="s7">
+  <div class="section-header">
+    <div class="section-num">07</div>
+    <h2 class="section-title">Your <span>30-Day</span> Action Plan</h2>
+  </div>
+
+  <div class="intro-block">
+    This is the exact sequence. No detours. Execute this daily for 30 days and you will have at least one paying client — most likely more.
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-week">Days 1–3</div>
+      <div class="tl-title">Pick Your Skill + Set Up Your Tools</div>
+      <div class="tl-body">
+        Choose your skill (one only). Install or sign up for your main tool (Canva / CapCut / Google Docs). Watch your first 2 tutorials. Create your first practice piece — even if it's rough. The goal isn't perfection, it's starting.
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-week">Days 4–10</div>
+      <div class="tl-title">Daily Practice — Build the Portfolio</div>
+      <div class="tl-body">
+        Practice for 1–2 hours daily. Create one new piece per day. By Day 10, you should have 6–8 pieces. Include at least one before/after redesign. Organize everything into a Google Drive folder.
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-week">Days 11–14</div>
+      <div class="tl-title">Start Pitching — Warm Network First</div>
+      <div class="tl-body">
+        WhatsApp 10 people in your contacts who have businesses. Show your samples. Offer a discounted or free job to one person for a testimonial. Post your work on your WhatsApp status. Tell people what you do.
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-week">Days 15–21</div>
+      <div class="tl-title">Cold Outreach — Instagram + Campus</div>
+      <div class="tl-body">
+        Send 5–10 DMs per day to local businesses on Instagram. Visit 2–3 campus businesses in person per week with your phone/portfolio. Tweak your pitch based on responses. Don't stop at silence — keep going.
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-week">Days 22–27</div>
+      <div class="tl-title">Close Your First Paid Job</div>
+      <div class="tl-body">
+        By now you have responses. Close at least one paid job. Take 50% upfront. Execute excellently. Deliver on time. Ask for a review and referral immediately after delivery.
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-week">Days 28–30</div>
+      <div class="tl-title">Stack, Repeat, Raise Prices</div>
+      <div class="tl-body">
+        With your first testimonial in hand, pitch 3 more clients. Raise your price slightly. Add your testimonial to your portfolio. You're no longer a beginner — you're a working professional with a track record.
+      </div>
+    </div>
+  </div>
+
+  <div class="milestone">
+    <div class="milestone-label">Target by Day 30</div>
+    <div class="milestone-num">₦50,000</div>
+    <div class="milestone-desc">2–3 paying clients at beginner rates = your first ₦50k. Fully executable as a student. No capital needed.</div>
+  </div>
+</section>
+
+<!-- SECTION 8: FAQs -->
+<section class="section reveal" id="s8">
+  <div class="section-header">
+    <div class="section-num">08</div>
+    <h2 class="section-title">Questions <span>&</span> Answers</h2>
+  </div>
+
+  <div class="qa-section">
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ I don't have a laptop — can I still do this?
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        <strong>Yes.</strong> Canva works on mobile with almost full functionality. CapCut is a fully capable mobile editor. Copywriting requires nothing but a phone and Google Docs. Social media management can be done 100% on mobile. A laptop gives you an edge for design and editing, but it is not a requirement to start.
+      </div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ How do I handle school and this at the same time?
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        1–2 hours per day is enough during learning phase. Once you're earning, you control your client load — don't take on more than you can handle alongside school. Keep early clients on realistic turnaround times (48–72 hours) so you don't create pressure. Many students use weekends for client work and weekdays for learning and pitching.
+      </div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ What if I'm not creative? I don't think I can design or write.
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        Creativity is mostly a skill, not a gift. Design has rules you can learn — hierarchy, contrast, alignment, color. Copy has frameworks — AIDA, PAS, before/after/bridge. You don't need to invent from scratch. Study what works. Copy the structure, not the content. With practice, your eye and instincts develop fast. Most professional designers weren't "born creative."
+      </div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ Should I build a personal brand on social media first?
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        <strong>No. Get clients first.</strong> Building an audience takes months. Getting your first client through direct outreach can happen in 2 weeks. Building a personal brand in parallel is smart, but don't make it a prerequisite for making money. Money first, audience after.
+      </div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ Can I combine multiple skills and offer them together?
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        Yes — once you're solid in your first skill. A designer who can also manage social media pages becomes far more valuable. A video editor who can also write scripts commands higher rates. Build deep in one skill first (Month 1–2), then start layering a complementary skill (Month 3+). Combining skills = higher pricing and less competition.
+      </div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q" onclick="toggleQA(this)">
+        ❓ Is ₦50k really achievable in 30 days as a beginner?
+        <span class="qa-icon">+</span>
+      </div>
+      <div class="qa-a">
+        <strong>Yes — but only if you actually execute.</strong> ₦50k in 30 days = roughly 2–4 small jobs (design or video) or 1–2 monthly social media management clients. That's not a fantasy — it's a math problem. The bottleneck is almost never the skill. It's the willingness to pitch. Students who don't make it in 30 days usually spent weeks "still learning" and never started pitching. Start pitching by Day 14 — no matter what.
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-title">Stop Reading. Start Executing.</div>
+  <p class="footer-sub">Every day you don't pitch is a day another student takes the client you could've had. Pick your skill. Build your samples. Send the message.</p>
+  <button class="cta-btn" onclick="scrollTo('s1')">Start With Step 1 →</button>
+  <p style="margin-top:40px; font-size:12px; color:var(--muted);">Student Income Blueprint · Practical skills for African students</p>
+</footer>
+
+<script>
+  // Scroll to section
+  function scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Q&A toggle
+  function toggleQA(el) {
+    const item = el.parentElement;
+    item.classList.toggle('open');
+  }
+
+  // Nav pill active state
+  const sections = ['s0','s1','s2','s3','s4','s5','s6','s7','s8'];
+  const pills = document.querySelectorAll('.nav-pill');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = sections.indexOf(entry.target.id);
+        if (idx !== -1) {
+          pills.forEach(p => p.classList.remove('active'));
+          if (pills[idx]) pills[idx].classList.add('active');
+        }
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -80px 0px' });
+
+  reveals.forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
